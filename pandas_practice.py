@@ -61,7 +61,7 @@ print(df.loc[(df['Type 1'] == 'Grass') & (df['Type 2'] == 'Poison') & (df['HP'] 
 
 # Create new database containing filtered data only - part 1
 new_df = df.loc[(df['Type 1'] == 'Grass') & (df['Type 2'] == 'Poison') & (df['HP'] > 70)]
-# new_df.to_csv('filtered.csv')
+new_df.to_csv('filtered.csv')
 
 # Reset index for new databases (created from filtered data) - part 2
 new_df = new_df.reset_index()
