@@ -41,3 +41,31 @@ print(df.sort_values('Name', ascending = False))
 
 # Sort values to be read in desired way
 print(df.sort_values(['Type 1', 'HP'], ascending =[1,0]))
+
+
+# Add a column
+df['Total'] = df['HP'] + df['Attack'] + df['Defence'] + df['Sp. Atk'] + df['Sp. Def'] + df['Speed']
+print(df.head(5))
+
+# Delete column 
+df = df.drop(columns=['Legendary'])
+print(df.head(5))
+
+# Save to CSV
+df.to_csv('modified.csv')
+
+# Filtering Data
+print(df.loc[df['Type 1'] == 'Grass'])
+print(df.loc[(df['Type 1'] == 'Grass') & (df['Type 2'] == 'Poison')])
+print(df.loc[(df['Type 1'] == 'Grass') & (df['Type 2'] == 'Poison') & (df['HP'] > 70)])
+
+# Create new database containing filtered data only - part 1
+new_df = df.loc[(df['Type 1'] == 'Grass') & (df['Type 2'] == 'Poison') & (df['HP'] > 70)]
+# new_df.to_csv('filtered.csv')
+
+# Reset index for new databases (created from filtered data) - part 2
+new_df = new_df.reset_index()
+
+
+
+
